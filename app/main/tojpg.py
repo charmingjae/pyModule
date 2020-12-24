@@ -7,11 +7,11 @@ def convertPDF():
     path = r'./app/static/temp'
     pdf_dir = glob.glob(path+"/*")
     print(pdf_dir)
-    img_dir = r'./app/static/img/'
+    img_dir = r'./app/static/img/original'
 
     # to jpg
     for pdf_ in pdf_dir:
-        pages = convert_from_path(pdf_, dpi=500)
+        pages = convert_from_path(pdf_, dpi=800)
         for i, page in enumerate(pages):
             page.save(
                 f'{img_dir+pdf_[len(path):-4]}_page{i+1:0>2d}.jpg', 'JPEG')
